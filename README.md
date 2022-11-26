@@ -33,31 +33,30 @@ predlist<-list(pred_test1, pred_test2)
 modellist<-list("Randomforest","Decision tree")
 ```
 
-``` r
-##measure table
-newtab=modelmeasure(testy, predlist,modellist)
-#> Setting levels: control = 0, case = 1
-#> Setting direction: controls > cases
-#> Setting levels: control = 0, case = 1
-#> Setting direction: controls > cases
-newtab
-```
+    #> Setting levels: control = 0, case = 1
+    #> Setting direction: controls > cases
+    #> Setting levels: control = 0, case = 1
+    #> Setting direction: controls < cases
+    #> Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, : 윈
+    #> 도우즈 폰트데이터베이스에서 찾을 수 없는 폰트페밀리입니다
+
+<img src="man/figures/README-newtab-1.png" width="100%" />
 
     #> Setting levels: control = 0, case = 1
     #> Setting direction: controls > cases
     #> Setting levels: control = 0, case = 1
     #> Setting direction: controls > cases
     #> Setting levels: control = 0, case = 1
-    #> Setting direction: controls > cases
+    #> Setting direction: controls < cases
     #> Setting levels: control = 0, case = 1
-    #> Setting direction: controls > cases
+    #> Setting direction: controls < cases
 
 <img src="man/figures/README-newroc-1.png" width="100%" />
 
     #> Setting levels: control = 0, case = 1
     #> Setting direction: controls > cases
     #> Setting levels: control = 0, case = 1
-    #> Setting direction: controls > cases
+    #> Setting direction: controls < cases
     #> 필요한 패키지를 로딩중입니다: ggplot2
     #> Warning: Removed 1 row containing missing values (`geom_path()`).
     #> Removed 1 row containing missing values (`geom_path()`).

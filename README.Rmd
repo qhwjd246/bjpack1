@@ -40,10 +40,10 @@ predlist<-list(pred_test1, pred_test2)
 modellist<-list("Randomforest","Decision tree")
 ```
 
-```{r}
+```{r newtab, echo=FALSE}
 ##measure table
 newtab=modelmeasure(testy, predlist,modellist)
-newtab
+plot(newtab)
 ```
 
 ```{r newroc, echo=FALSE}
