@@ -1,0 +1,27 @@
+Package: bjpack1
+Type: Package
+Title: Create a table of performance measures, a ROC and PRC, and a shiny gadget of binary classifiers
+Version: 0.1.0
+Author: Bojung Seo <bjseo2@gmail.com>
+Maintainer: Bojung Seo <bjseo2@gmail.com>
+Description: Creates a table that includes all of the important performance 
+        measures of classifier to intuitively provide important information 
+        at once that is necessary for the comparison of the models' performance.
+        Creates a ROC with useful information of the best model in a neat way.
+        Creates a PRC for each model. 
+        Creates a shiny gadget that provides a ROC/PRC according to a user's choice.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    flextable,
+    ggplot2,
+    InformationValue,
+    magrittr,
+    pROC,
+    shiny,
+    shinyWidgets
+RoxygenNote: 7.2.2
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
