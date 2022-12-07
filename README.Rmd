@@ -11,7 +11,6 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
-
 ```
 
 # bjpack1
@@ -22,7 +21,10 @@ The goal of bjpack1 is to create a table that includes all of the important perf
 You can install the development version of bjpack1 like so:
 
 ``` r
-install.packages("bjpack1")
+install.packages("dplyr")
+library(devtools)
+install_github("qhwjd246/bjpack1")
+library(bjpack1)
 ```
 
 ## Example
@@ -33,36 +35,67 @@ This is a basic example which shows you how to solve a common problem:
 library(bjpack1)
 
 ## basic example code
+## example 1
 testy<-sample(c(0,1), 154, replace=TRUE)
 pred_test1<-runif (154, min=0, max=1)
 pred_test2<- runif (154, min=0, max=1)
 predlist<-list(pred_test1, pred_test2)
 modellist<-list("Randomforest","Decision tree")
+
+
+## example 2
+testy2<-sample(c(0,1), 1000, replace=TRUE)
+pred_test3<-runif (1000, min=0, max=1)
+pred_test4<- runif (1000, min=0, max=1)
+predlist2<-list(pred_test3, pred_test4)
+modellist2<-list("Randomforest","Decision tree")
 ```
 
 ```{r newtab, echo=FALSE}
 ##measure table
+#first example result
 newtab=modelmeasure(testy, predlist,modellist)
 plot(newtab)
+
+#second example result
+newtab2=modelmeasure(testy2, predlist2,modellist2)
+plot(newtab2)
 ```
 
 ```{r newroc, echo=FALSE}
 ##roc
+#first example result
 newroc=bjroc(testy, predlist,modellist)
 plot(newroc)
+
+#second example result
+newroc2=bjroc(testy2, predlist2,modellist2)
+plot(newroc2)
 ```
 ```{r prc, echo=FALSE}
 #prc
 apr=bjpr(testy, pred_test1, "Randomforest")
 bpr=bjpr(testy, pred_test2, "Decision tree")
+cpr=bjpr(testy2, pred_test3, "Randomforest")
+dpr=bjpr(testy2, pred_test4, "Decision tree")
+
 #install.packages("ggpubr", repos = "http://cran.us.r-project.org")
 library(ggpubr)
+
+#first example result
 prc=ggarrange(apr, bpr, labels=c('A','B'))
 plot(prc)
+
+#second example result
+prc2=ggarrange(cpr, dpr, labels=c('A','B'))
+plot(prc2)
 ```
 ```{r bjshiny function example}
 ##shiny gadget
+#first example result
 newshiny=bjshiny (testy, pred_test1,modellist)
+#second example result
+newshiny1=bjshiny (testy2, pred_test3,modellist2)
 ```
 
 
